@@ -22,6 +22,9 @@ ReactDOM.render(element, document.getElementById('app'));
 */
 
 var Movie = React.createClass({
+	propTypes {
+		movie: React.PropTypes.object.isRequired,
+	},
     render: function() {
         return (
             React.createElement('li', { key: movie.id },
@@ -30,5 +33,5 @@ var Movie = React.createClass({
                 React.createElement('img', { src: movie.image })
             )
         )
-    }
-})
+    },
+});
