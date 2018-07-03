@@ -1,4 +1,4 @@
-var GalleryItem = React.createClass({
+/*var GalleryItem = React.createClass({
     propTypes: {
         image: React.PropTypes.object.isRequired,
     },
@@ -19,3 +19,16 @@ var image = {
 
 var element = React.createElement(GalleryItem, { image: image });
 ReactDOM.render(element, document.getElementById('app'));
+*/
+
+var Movie = React.createClass({
+    render: function() {
+        return (
+            React.createElement('li', { key: movie.id },
+                React.createElement('h2', {}, movie.title),
+                React.createElement('p', {}, movie.desc),
+                React.createElement('img', { src: movie.image })
+            )
+        )
+    }
+})
