@@ -22,7 +22,7 @@ ReactDOM.render(element, document.getElementById('app'));
 */
 
 var Movie = React.createClass({
-	propTypes {
+	propTypes: {
 		movie: React.PropTypes.object.isRequired,
 	},
     render: function() {
