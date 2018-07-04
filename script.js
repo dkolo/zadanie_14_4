@@ -1,4 +1,6 @@
-/*var GalleryItem = React.createClass({
+/* Pierwsza część submodułu 14.4
+
+var GalleryItem = React.createClass({
     propTypes: {
         image: React.PropTypes.object.isRequired,
     },
@@ -48,58 +50,59 @@ var movies = [{
 
 var Movie = React.createClass({
     propTypes: {
-        movie: React.PropTypes.object.isRequired,
+        movies: React.PropTypes.object.isRequired,
     },
     render: function() {
         return (
-            React.createElement('li', {}),
-            React.createElement(movieTitle, { MovieTitle: this.props.movie.title }),
-            React.createElement(movieDescription, { MovieDescription: this.props.movie.desc }),
-            React.createElement('img', { src: this.props.movie.image })
+            React.createElement('li', {},
+                React.createElement(MovieTitle, { title: this.props.movies.title }),
+                React.createElement(MovieDescription, { desc: this.props.movies.desc }),
+                React.createElement('img', { src: this.props.movies.image })
+            )
         )
-    },
+    }
 });
 
 var MovieTitle = React.createClass({
     propTypes: {
-        movieTitle: React.PropTypes.string.isRequired,
+        title: React.PropTypes.string.isRequired,
     },
     render: function() {
         return (
-            React.createElement('h2', {}, this.props.movieTitle)
+            React.createElement('h2', {}, this.props.title)
         )
     }
 });
 
 var MovieDescription = React.createClass({
     propTypes: {
-        movieDescription: React.PropTypes.string.isRequired,
+        desc: React.PropTypes.string.isRequired,
     },
     render: function() {
         return (
-            React.createClass('p', {}, this.props.movieDescription)
+            React.createElement('p', {}, this.props.desc)
         )
     }
 });
 
 var MovieList = React.createClass({
     propTypes: {
-        movieList: React.PropTypes.array.isRequired,
+        movies: React.PropTypes.array.isRequired,
     },
     render: function() {
         var moviesElements = movies.map(function(movie) {
-            return React.createElement(Movie, { key: movie.id, movieList: movie }),
+            return (React.createElement(Movie, { key: movie.id, movies: movie }))
         })
         return (
             React.createElement('ul', {}, moviesElements)
-        )
+        );
     }
 });
 
 var element =
     React.createElement('div', {},
         React.createElement('h1', {}, 'Lista filmów'),
-        React.createElement('ul', {}, MovieList)
+        React.createElement(MovieList, {})
     );
 
 ReactDOM.render(element, document.getElementById('app'));
