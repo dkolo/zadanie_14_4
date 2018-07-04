@@ -95,3 +95,11 @@ var MovieList = React.createClass({
         )
     }
 });
+
+var element =
+    React.createElement('div', {},
+        React.createElement('h1', {}, 'Lista filmów'),
+        React.createElement('ul', {}, MovieList)
+    );
+
+ReactDOM.render(element, document.getElementById('app'));
