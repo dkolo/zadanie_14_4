@@ -33,30 +33,52 @@ var movies = [{
         image: './images/lion.jpg'
     },
     {
-    	id: 3,
-    	title: 'Władca pierścieni',
-    	desc: 'Film fantasy o zmaganiach dobra ze złem w świecie stworzonym przez J.R.R. Tolkiena',
-    	image: './images/gandalf.jpg'
+        id: 3,
+        title: 'Władca pierścieni',
+        desc: 'Film fantasy o zmaganiach dobra ze złem w świecie stworzonym przez J.R.R. Tolkiena',
+        image: './images/gandalf.jpg'
     },
     {
-    	id: 4,
-    	title: 'Przyjaciele',
-    	desc: 'Serial komediowy opisujący życie szóstki przyjaciół żyjących w Nowym Jorku',
-    	image: './images/friends.jpg'
+        id: 4,
+        title: 'Przyjaciele',
+        desc: 'Serial komediowy opisujący życie szóstki przyjaciół żyjących w Nowym Jorku',
+        image: './images/friends.jpg'
     }
 ];
 
 var Movie = React.createClass({
-	propTypes: {
-		movie: React.PropTypes.object.isRequired,
-	},
+    propTypes: {
+        movie: React.PropTypes.object.isRequired,
+    },
     render: function() {
         return (
             React.createElement('li', { key: this.props.movie.id }),
-                React.createElement(MovieTitle, {MovieTitle: this.props.movie.title)},
-                React.createElement(MovieDescription, {MovieDescription: this.props.movie.desc}),
-                React.createElement('img', { src: this.props.movie.image })
-            )
+            React.createElement(movieTitle, { MovieTitle: this.props.movie.title }),
+            React.createElement(movieDescription, { MovieDescription: this.props.movie.desc }),
+            React.createElement('img', { src: this.props.movie.image })
         )
     },
 });
+
+var MovieTitle = React.createClass({
+    propTypes: {
+        movieTitle: React.PropTypes.string.isRequired,
+    },
+    render: function() {
+        return (
+            React.createElement('h2', {}, this.props.movieTitle)
+        )
+    }
+});
+
+var MovieDescription = React.createClass({
+    propTypes: {
+        movieDescription: React.PropTypes.string.isRequired,
+    },
+    render: function() {
+        return (
+            React.createClass('p', {}, this.props.movieDescription)
+        )
+    }
+});
+
